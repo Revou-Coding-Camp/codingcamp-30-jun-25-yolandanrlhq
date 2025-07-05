@@ -1,13 +1,35 @@
 function submitName() {
     const name = document.getElementById('nameInput').value.trim();
     if (name !== "") {
-      document.getElementById('welcomeText').textContent = `Selamat datang, ${name}!`;
+      document.getElementById('welcomeText').textContent = `Welcome to our website, ${name}!`;
       document.getElementById('popup').classList.add('hidden');
     } else {
       alert("Silakan isi nama terlebih dahulu.");
     }
   }
 
+const menuToggle = document.getElementById('menu-toggle');
+  const menuClose = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // Buka sidebar
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+  });
+
+  // Tutup sidebar pakai tombol silang
+  menuClose.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+  });
+
+  // Tutup sidebar setelah klik link (scroll ke section)
+  const sidebarLinks = mobileMenu.querySelectorAll('a[href^="#"]');
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+  
 let currentSlide = 0;
     const carousel = document.getElementById('carousel');
     const totalSlides = carousel.children.length;
@@ -52,7 +74,4 @@ function tampilkanHasil(e) {
     document.getElementById('hasil-nama').textContent = nama;
     document.getElementById('hasil-email').textContent = email;
     document.getElementById('hasil-pesan').textContent = pesan;
-
-    // Opsional: reset form
-    // e.target.reset();
   }

@@ -12,37 +12,68 @@
     <!-- 🔶 Modal Pop-up Input Nama -->
     <div id="popup" class="fixed inset-0 bg-pink-200 bg-opacity-50 flex items-center justify-center z-50">
         <div class="bg-white p-6 rounded-xl shadow-xl w-full max-w-sm text-center">
-            <h2 class="text-xl font-semibold mb-4 text-gray-800">Masukkan Nama Kamu</h2>
-            <input type="text" id="nameInput" placeholder="Nama lengkap"
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Enter Your Name</h2>
+            <input type="text" id="nameInput" placeholder="Full name"
             class="w-full px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 mb-4">
             <button onclick="submitName()"
-            class="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700 transition">Masuk</button>
+            class="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700 transition">Enter</button>
         </div>
     </div>
 
-    <header class="shadow-md py-5 px-10 flex items-center justify-between">
+    <header class="shadow-md py-5 px-6 flex items-center justify-between bg-white relative z-10">
         <!-- Logo -->
         <div class="flex items-center space-x-2">
-            <img src="asset\logoPorarolla.png" alt="Logo Polarolla" class="h-10 w-auto" />
+            <img src="asset/logoPorarolla.png" alt="Logo" class="h-10 w-auto" />
         </div>
 
-        <nav class="flex space-x-6 font-semibold">
-            <a href="#home" class="hover:text-pink-600 transition-colors duration-300">Home</a>
-            <a href="#about" class="hover:text-pink-600 transition-colors duration-300">About</a>
-            <a href="#product" class="hover:text-pink-600 transition-colors duration-300">Product</a>
-            <a href="#contact" class="hover:text-pink-600 transition-colors duration-300">Contact</a>
+        <!-- Hamburger -->
+        <button id="menu-toggle" class="md:hidden text-pink-600 cursor-pointer">
+            <svg id="icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex space-x-6 font-semibold">
+            <a href="#home" class="hover:text-pink-600">Home</a>
+            <a href="#about" class="hover:text-pink-600">About</a>
+            <a href="#product" class="hover:text-pink-600">Product</a>
+            <a href="#contact" class="hover:text-pink-600">Contact</a>
         </nav>
     </header>
+
+    <!-- Sidebar Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white p-6 z-40 flex-col items-start gap-6 text-lg font-semibold hidden md:hidden">
+        <!-- Close button -->
+        <div class="w-full flex justify-end">
+            <button id="menu-close" class="text-black cursor-pointer">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            </button>
+        </div>
+
+        <!-- Menu Items -->
+        <nav class="flex flex-col space-y-4 mt-4">
+            <a href="#home" class="hover:text-pink-600">Home</a>
+            <a href="#about" class="hover:text-pink-600">About</a>
+            <a href="#product" class="hover:text-pink-600">Product</a>
+            <a href="#contact" class="hover:text-pink-600">Contact</a>
+        </nav>
+    </div>
 
     <main>
         <section id="home" class="bg-[url('asset/bannerPolarolla.png')] bg-cover bg-center py-25 px-30 text-white">
             <div>
                 <img src="asset\logoPorarolla2.png" alt="Logo Polarolla" class="h-25 mb-4" />
                 <h1 id="welcomeText" class="text-2xl font-bold mb-4"></h1>
-                <p class="text-xl">Dari Layar ke Kertas, dari Hati ke Hati.</p>
-                <p class="text-xl mb-20">Abadikan Momenmu, Cetak Jadi Kenangan.</p>
+                <p class="text-xl">From Screen to Paper, from Heart to Heart.</p>
+                <p class="text-xl mb-20">Capture Your Moments, Print Your Memories.</p>
                 <a href="#product" class="bg-white text-black px-6 py-3 rounded-full hover:bg-gray-200 transition">
-                Lihat Produk
+                View Products
                 </a>
             </div>
 
@@ -50,23 +81,23 @@
 
         <section id="about" class="py-16 px-6 md:px-20">
             <header class="text-center mb-12 max-w-3xl mx-auto">
-                <h2 class="text-4xl font-extrabold text-pink-600">Tentang <span class="text-gray-900">Polarolla</span></h2>
+                <h2 class="text-4xl font-extrabold text-pink-600">About <span class="text-gray-900">Polarolla</span></h2>
                 <p class="mt-4 text-gray-600 text-base md:text-lg">
-                Kami hadir untuk mencetak kenangan, bukan sekadar menyimpannya di galeri.
+                We're here to print memories — not just keep them in the gallery.
                 </p>
             </header>
 
             <!-- Artikel 1 -->
             <article class="grid md:grid-cols-2 gap-10 items-center mb-16">
                 <div>
-                    <h3 class="text-2xl font-semibold text-pink-500 mb-4">Awal Mula Polarolla</h3>
+                    <h3 class="text-2xl font-semibold text-pink-500 mb-4">The Beginning of Polarolla</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Dimulai dari kamar kecil dan satu printer rumahan, Polarolla lahir dari keinginan sederhana: mengubah momen digital jadi kenangan nyata yang bisa disentuh, disimpan, dan dibagikan.
+                        It all started in a small room with a single home printer.
+                        Polarolla was born from a simple desire: to turn digital moments into real memories — ones you can touch, keep, and share.
                     </p>
                 </div>
                 <figure class="md:order-last">
                     <img src="asset/pola1.jpg" alt="Awal mula Polarolla" class="rounded-xl shadow-lg w-full max-w-64 mx-auto object-cover">
-                    <figcaption class="sr-only">Foto awal mula usaha Polarolla</figcaption>
                 </figure>
             </article>
 
@@ -74,12 +105,12 @@
             <article class="grid md:grid-cols-2 gap-10 items-center mb-16">
                 <figure>
                     <img src="asset/pola2.jpg" alt="Kemasan lucu Polarolla" class="rounded-xl shadow-lg w-full max-w-96 mx-auto object-cover">
-                    <figcaption class="sr-only">Kemasan cetak polaroid yang lucu</figcaption>
                 </figure>
                 <div>
-                    <h3 class="text-2xl font-semibold text-pink-500 mb-4">Kemasan yang Estetik</h3>
+                    <h3 class="text-2xl font-semibold text-pink-500 mb-4">Aesthetic Packaging</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Kami percaya bahwa kemasan adalah bagian dari pengalaman. Setiap cetakan dibungkus dengan cinta — dari amplop kraft, stiker lucu, hingga box edisi khusus, semua kami siapkan agar penerima senang bahkan sebelum melihat fotonya.
+                        We believe packaging is part of the experience.
+                        Each print is wrapped with love — from kraft envelopes and cute stickers to special edition boxes — all thoughtfully prepared to delight the recipient even before they see the photo.
                     </p>
                 </div>
             </article>
@@ -87,21 +118,21 @@
             <!-- Artikel 3 -->
             <article class="grid md:grid-cols-2 gap-10 items-center">
                 <div>
-                    <h3 class="text-2xl font-semibold text-pink-500 mb-4">Layanan yang Personal</h3>
+                    <h3 class="text-2xl font-semibold text-pink-500 mb-4">Personalized Service</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Kamu bisa pilih tema, ukuran, pesan khusus, hingga request warna. Polarolla bukan cetak massal — ini tentang personalisasi. Karena setiap orang punya cerita unik.
+                        You can choose the theme, size, custom messages, even request specific colors.
+                        Polarolla isn't about mass printing — it's about personalization. Because everyone has a unique story to tell.
                     </p>
                 </div>
                 <figure class="md:order-last">
                     <img src="asset/pola3.jpg" alt="Layanan personal Polarolla" class="rounded-xl shadow-lg w-full max-w-80 mx-auto object-cover">
-                    <figcaption class="sr-only">Contoh layanan cetak polaroid personal</figcaption>
                 </figure>
             </article>
         </section>
 
        <section id="product" class="py-16 bg-white">
             <div class="text-center mb-8">
-                <h2 class="text-4xl font-extrabold text-pink-600">Galeri Produk</h2>
+                <h2 class="text-4xl font-extrabold text-pink-600">Product Gallery</h2>
             </div>
 
             <div class="px-6">
@@ -109,31 +140,31 @@
                 <div class="overflow-x-auto rounded-3xl bg-pink-100 shadow-inner p-8 scroll-smooth snap-x snap-mandatory 
                             flex gap-8 cursor-grab active:cursor-grabbing w-full max-w-screen-xl mx-auto">
                     <div class="snap-center flex-shrink-0 w-64 h-80 rounded-xl overflow-hidden shadow-lg bg-white">
-                        <img src="asset/gal1.jpg" class="w-full h-full object-cover" />
+                        <img src="asset/gal1.jpg" alt="Produk 1" class="w-full h-full object-cover" />
                     </div>
                     <div class="snap-center flex-shrink-0 w-64 h-80 rounded-xl overflow-hidden shadow-lg bg-white">
-                        <img src="asset/gal2.jpg" class="w-full h-full object-cover" />
+                        <img src="asset/gal2.jpg" alt="Produk 2" class="w-full h-full object-cover" />
                     </div>
                     <div class="snap-center flex-shrink-0 w-64 h-80 rounded-xl overflow-hidden shadow-lg bg-white">
-                        <img src="asset/gal3.jpg" class="w-full h-full object-cover" />
+                        <img src="asset/gal3.jpg" alt="Produk 3" class="w-full h-full object-cover" />
                     </div>
                     <div class="snap-center flex-shrink-0 w-64 h-80 rounded-xl overflow-hidden shadow-lg bg-white">
-                        <img src="asset/gal4.jpg" class="w-full h-full object-cover" />
+                        <img src="asset/gal4.jpg" alt="Produk 4" class="w-full h-full object-cover" />
                     </div>
                     <div class="snap-center flex-shrink-0 w-64 h-80 rounded-xl overflow-hidden shadow-lg bg-white">
-                        <img src="asset/gal5.jpg" class="w-full h-full object-cover" />
+                        <img src="asset/gal5.jpg" alt="Produk 5" class="w-full h-full object-cover" />
                     </div>
                     <div class="snap-center flex-shrink-0 w-64 h-80 rounded-xl overflow-hidden shadow-lg bg-white">
-                        <img src="asset/gal6.jpg" class="w-full h-full object-cover" />
+                        <img src="asset/gal6.jpg" alt="Produk 6" class="w-full h-full object-cover" />
                     </div>
                     <div class="snap-center flex-shrink-0 w-64 h-80 rounded-xl overflow-hidden shadow-lg bg-white">
-                        <img src="asset/gal7.jpg" class="w-full h-full object-cover" />
+                        <img src="asset/gal7.jpg" alt="Produk 7" class="w-full h-full object-cover" />
                     </div>
                     <div class="snap-center flex-shrink-0 w-64 h-80 rounded-xl overflow-hidden shadow-lg bg-white">
-                        <img src="asset/gal8.jpg" class="w-full h-full object-cover" />
+                        <img src="asset/gal8.jpg" alt="Produk 8" class="w-full h-full object-cover" />
                     </div>
                     <div class="snap-center flex-shrink-0 w-64 h-80 rounded-xl overflow-hidden shadow-lg bg-white">
-                        <img src="asset/gal9.jpg" class="w-full h-full object-cover" />
+                        <img src="asset/gal9.jpg" alt="Produk 9" class="w-full h-full object-cover" />
                     </div>
                 </div>
             </div>
@@ -141,9 +172,9 @@
 
         <section id="contact" class="py-16 bg-pink-50 px-6 md:px-20">
             <div class="text-center mb-12 max-w-2xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-pink-600">Hubungi Kami</h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-pink-600">Contact Us</h2>
                 <p class="mt-4 text-gray-600 text-base md:text-lg">
-                Punya pertanyaan? Ingin custom pesanan? Kirim pesanmu di sini!
+                Got a question? Want to customize your order? Send us a message here!
                 </p>
             </div>
 
@@ -151,7 +182,7 @@
                 <!-- Formulir Kontak -->
                 <form onsubmit="tampilkanHasil(event)" class="bg-white p-6 md:p-8 rounded-2xl shadow-lg space-y-6 w-full">
                 <div>
-                    <label for="nama" class="block text-sm font-semibold text-gray-700 mb-1">Nama</label>
+                    <label for="nama" class="block text-sm font-semibold text-gray-700 mb-1">Name</label>
                     <input type="text" id="nama" required
                     class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-300 focus:outline-none" />
                 </div>
@@ -163,25 +194,25 @@
                 </div>
 
                 <div>
-                    <label for="pesan" class="block text-sm font-semibold text-gray-700 mb-1">Pesan</label>
+                    <label for="pesan" class="block text-sm font-semibold text-gray-700 mb-1">Message</label>
                     <textarea id="pesan" rows="5" required
                     class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-300 focus:outline-none resize-none"></textarea>
                 </div>
 
                 <button type="submit"
                     class="w-full bg-pink-600 hover:bg-pink-800 text-white py-3 px-6 rounded-lg font-semibold transition duration-300">
-                    Kirim Pesan
+                    Send Message
                 </button>
                 </form>
 
                 <!-- Hasil Kirim Pesan -->
                 <aside class="bg-white p-6 md:p-8 rounded-2xl shadow-lg w-full text-gray-800">
-                <h3 class="text-2xl font-bold text-pink-600 mb-4">Detail Pesanan</h3>
+                <h3 class="text-2xl font-bold text-pink-600 mb-4">Order Details</h3>
                 <div id="preview" class="space-y-2 text-sm">
-                    <p><strong>Waktu :</strong> <span id="waktu">Belum ada</span></p>
-                    <p><strong>Nama :</strong> <span id="hasil-nama">-</span></p>
+                    <p><strong>Current Time :</strong> <span id="waktu">None yet</span></p>
+                    <p><strong>Name :</strong> <span id="hasil-nama">-</span></p>
                     <p><strong>Email :</strong> <span id="hasil-email">-</span></p>
-                    <p><strong>Pesan :</strong> <span id="hasil-pesan">-</span></p>
+                    <p><strong>Message :</strong> <span id="hasil-pesan">-</span></p>
                 </div>
                 </aside>
             </div>
@@ -193,7 +224,7 @@
             <!-- Info Brand -->
             <div class="text-center md:text-left">
             <img src="asset\logoPorarolla.png" alt="Logo Polarolla" class="h-8 w-auto" />
-            <p class="mt-1">Mencetak momen jadi kenangan abadi 📸</p>
+            <p class="mt-1">Turning moments into everlasting memories 📸</p>
             </div>
 
             <!-- Kontak -->
